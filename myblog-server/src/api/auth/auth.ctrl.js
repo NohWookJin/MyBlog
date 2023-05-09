@@ -64,5 +64,18 @@ export const login = async (ctx) => {
     ctx.throw(500, e);
   }
 };
-export const check = async (ctx) => {};
-export const logout = async (ctx) => {};
+
+export const check = async (ctx) => {
+  const { user } = ctx.state;
+  if (!user) {
+    // 로그인 중이 아니면
+    ctx.status = 401;
+    return;
+  }
+  ctx.body = user;
+};
+
+export const logout = async (ctx) => {
+  ctx.cookies.get('access_token');
+  ctx.status = 204; // No Content
+};
