@@ -17,7 +17,7 @@ export default LoginModal;
 
 const StyledSelect = styled.div`
   position: absolute;
-  top: 3rem;
+  top: 3.4rem;
   right: 0rem;
   display: flex;
   flex-direction: column;
