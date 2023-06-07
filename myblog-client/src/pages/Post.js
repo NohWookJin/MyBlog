@@ -1,7 +1,14 @@
 import React from "react";
+import HeaderContainer from "../containers/common/HeaderContainer";
+import PostViewerContainer from "../containers/post/PostViewerContainer";
 
 const Post = () => {
-  return <div>Post</div>;
+  return (
+    <>
+      <HeaderContainer />
+      <PostViewerContainer />
+    </>
+  );
 };
 
 export default Post;
