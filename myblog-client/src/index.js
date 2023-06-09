@@ -20,7 +20,7 @@ function loadUser() {
   try {
     const user = localStorage.getItem("user");
     if (!user) return;
-    store.dispatch(tempSetUser(user));
+    store.dispatch(tempSetUser(JSON.parse(user)));
     store.dispatch(check());
   } catch (e) {
     console.log("localStorage is not working");
