@@ -102,6 +102,8 @@ export const list = async (ctx) => {
       .limit(10)
       .skip((page - 1) * 10)
       .exec();
+    const postCount = await Post.countDocuments().exec();
+    ctx.set('Last-Page', Math.ceil(postCount / 10));
     ctx.body = posts
       .map((post) => post.toJSON())
       .map((post) => ({
