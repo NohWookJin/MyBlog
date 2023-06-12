@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Button from "./Button";
-import Responsive from "./Responsive";
 import { Link } from "react-router-dom";
 import profile from "../images/defaultProfile.png";
 import LoginModal from "./LoginModal";
@@ -21,11 +20,18 @@ const Header = ({ user, onLogout }) => {
           <Link to="/" className="logo">
             <LogoWrapper>
               <MainImg src={velog} alt="main-logo" />
-              <StyledSpan>Velog</StyledSpan>
+              {user ? (
+                <StyledSpan>{user.username}</StyledSpan>
+              ) : (
+                <StyledSpan>Velog</StyledSpan>
+              )}
             </LogoWrapper>
           </Link>
           {user ? (
             <div className="right">
+              <Link to="/write">
+                <button className="writeButton">새 글 작성</button>
+              </Link>
               <StyledImg src={profile} alt="profile" onClick={profileClick} />
               {modal && <LoginModal onLogout={onLogout} />}
             </div>
@@ -49,12 +55,13 @@ const HeaderBlock = styled.div`
   background: #f8f9fa;
 `;
 
-const Wrapper = styled(Responsive)`
+const Wrapper = styled.div`
+  padding: 0 10rem;
   height: 4rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 자식 엘리먼트 사이의 여백을 최대로 설정 */
+  justify-content: space-between;
   .logo {
     font-size: 1.125rem;
     font-weight: 600;
@@ -64,6 +71,16 @@ const Wrapper = styled(Responsive)`
     display: flex;
     align-items: center;
     position: relative;
+    .writeButton {
+      border: 1px solid black;
+      border-radius: 20px;
+      padding: 0.45rem 1.15rem;
+      background: #f8f9fa;
+      margin-right: 1rem;
+      margin-top: 0.2rem;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
   }
 `;
 
@@ -79,11 +96,11 @@ const MainImg = styled.img`
 `;
 
 const StyledSpan = styled.span`
-  font-size: 0.95rem;
+  font-size: 1.15rem;
 `;
 
 const StyledImg = styled.img`
-  width: 40px;
+  width: 50px;
   cursor: pointer;
 `;
 
