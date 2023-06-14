@@ -5,12 +5,12 @@ const [FINISH_LOADING] = "loading/FINISH_LOADING";
 
 export const startLoading = createAction(
   START_LOADING,
-  (RequestType) => RequestType
+  (requestType) => requestType
 );
 
 export const finishLoading = createAction(
   FINISH_LOADING,
-  (RequestType) => RequestType
+  (requestType) => requestType
 );
 
 const initialState = {};
