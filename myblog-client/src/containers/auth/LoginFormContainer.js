@@ -57,7 +57,7 @@ const LoginFormContainer = () => {
       } catch (e) {
         console.log(e);
       }
-      navigate("/");
+      navigate(`/`);
     }
   }, [navigate, user]);
 
