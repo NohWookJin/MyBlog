@@ -2,7 +2,7 @@ import styled from "styled-components";
 import palette from "../../lib/palette";
 import Responsive from "../common/Responsive";
 
-const PostViewer = ({ post, error, loading }) => {
+const PostViewer = ({ post, error, loading, actionButtons }) => {
   if (error) {
     if (error.response && error.response.status === 404) {
       return alert("미존재 페이지");
@@ -32,6 +32,7 @@ const PostViewer = ({ post, error, loading }) => {
           ))}
         </Tags> */}
       </PostHead>
+      {actionButtons}
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
     </StyledPostViewer>
   );
@@ -43,7 +44,6 @@ const StyledPostViewer = styled(Responsive)`
   margin-top: 4rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  border: 1px solid red;
   width: 45%;
   @media (max-width: 768px) {
     width: 100%;
