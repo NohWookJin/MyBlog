@@ -8,6 +8,7 @@ const StyledPostActionButton = styled.div`
 `;
 const ActionButton = styled.button`
   padding: 0.25rem 0.5rem;
+  background: white;
   border-radius: 4px;
   font-weight: bold;
   border: none;
@@ -19,10 +20,10 @@ const ActionButton = styled.button`
   }
 `;
 
-const PostActionButton = () => {
+const PostActionButton = ({ onEdit }) => {
   return (
     <StyledPostActionButton>
-      <ActionButton>수정</ActionButton>
+      <ActionButton onClick={onEdit}>수정</ActionButton>
       <ActionButton>삭제</ActionButton>
     </StyledPostActionButton>
   );
