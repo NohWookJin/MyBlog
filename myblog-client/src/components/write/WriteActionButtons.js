@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "../common/Button";
 import { BsArrowLeftShort } from "react-icons/bs";
 
-const WriteActionButtons = ({ onPublish, onCancel }) => {
+const WriteActionButtons = ({ onPublish, onCancel, isEdit }) => {
   return (
     <StyledWriteActionButtons>
       <StyledButton onClick={onCancel}>
