@@ -1,4 +1,39 @@
 import styled from "styled-components";
+import RemoveAlertModal from "./RemoveAlertModal";
+import { useState, useCallback } from "react";
+
+const PostActionButton = ({ onEdit, onRemove }) => {
+  const [modal, setModal] = useState(false);
+
+  const onRemoveClick = () => {
+    setModal(true);
+  };
+
+  const onCacnel = () => {
+    setModal(false);
+  };
+
+  const onConfirm = () => {
+    setModal(false);
+    onRemove();
+  };
+
+  return (
+    <>
+      <StyledPostActionButton>
+        <ActionButton onClick={onEdit}>수정</ActionButton>
+        <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+      </StyledPostActionButton>
+      <RemoveAlertModal
+        visible={modal}
+        onConfirm={onConfirm}
+        onCacnel={onCacnel}
+      />
+    </>
+  );
+};
+
+export default PostActionButton;
 
 const StyledPostActionButton = styled.div`
   display: flex;
@@ -19,14 +54,3 @@ const ActionButton = styled.button`
     margin-left: 0.25rem;
   }
 `;
-
-const PostActionButton = ({ onEdit }) => {
-  return (
-    <StyledPostActionButton>
-      <ActionButton onClick={onEdit}>수정</ActionButton>
-      <ActionButton>삭제</ActionButton>
-    </StyledPostActionButton>
-  );
-};
-
-export default PostActionButton;
