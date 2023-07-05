@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <Helmet>
-        <title>MyBlog</title>
+        <title>MyBlog - Main</title>
       </Helmet>
       <Routes>
         <Route path="/" element={<PostList />} />
