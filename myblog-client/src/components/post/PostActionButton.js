@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import RemoveAlertModal from "./RemoveAlertModal";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 const PostActionButton = ({ onEdit, onRemove }) => {
   const [modal, setModal] = useState(false);
