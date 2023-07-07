@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import palette from "../../lib/palette";
 import Responsive from "../common/Responsive";
 import { Helmet } from "react-helmet-async";
 
